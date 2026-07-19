@@ -17,7 +17,7 @@ class AppointmentService
     public function index($filters)
     {
 
-        $appointments =  Appointment::with(['patient', 'doctor'])->filter($filters)->paginate(10);
+        $appointments =  Appointment::with(['patient', 'doctorProfile'])->filter($filters)->paginate(10);
 
         return $appointments;
     }

@@ -58,23 +58,34 @@ To demonstrate professional backend proficiency and maintainability, this API co
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/your-username/pulseBook-api.git](https://github.com/your-username/pulseBook-api.git)
+   git clone https://github.com/wofe-top/pulseBook-api.git
+```
 
 
-   Install dependencies:
+   2.Install dependencies:
+    ```bash
    composer install
+   ```
 
 
-   Copy environment file and configure database:
+   3.Copy environment file and configure database:
+    ```bash
    cp .env.example .env
     php artisan key:generate
+    ```
 
-    Run migrations & seeders:
+    4.Run migrations & seeders:
+     ```bash
 
     php artisan migrate --seed
+    ```
 
-    Run the automated test suite:
+    5.Run the automated test suite:
+     ```bash
     php artisan test
+    ```
 
-    Generate or view API Documentation:
+    6.Generate or view API Documentation:
+     ```bash
     php artisan scribe:generate
+```

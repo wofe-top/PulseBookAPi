@@ -40,8 +40,8 @@ To demonstrate professional backend proficiency and maintainability, this API co
 *   [x] Implementing core Appointment Booking creation endpoints protected via `DB::transaction` blocks.
 *   [x] High-performance Algorithmic Collision Prevention engine to fully regulate real-time scheduling.
 *   [x] Strict operational validation ensuring appointments are only placed within validated doctor availability windows.
+*   [x] Customizing Global Exception Handler overrides for `ModelNotFoundException` and `ValidationException` format synchronization.
 *   [ ] Developing the Dynamic Available Time Slots Calculation API Engine (Dynamic schedule querying vs existing bookings).
-*   [ ] Customizing Global Exception Handler overrides for `ModelNotFoundException` and `ValidationException` format synchronization.
 
 ### 🔮 Phase 3: Testing & Quality Assurance (Future)
 *   [ ] Writing automated Feature and Unit Tests to guarantee API stability.

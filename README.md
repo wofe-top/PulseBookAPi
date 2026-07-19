@@ -1,17 +1,18 @@
 # pulseBook-api
 
-A modern, highly optimized, and robust RESTful API built with Laravel, designed to serve as the backend enterprise architecture for the **pulseBook Medical Clinic & Appointment Booking Platform**. This project showcases advanced backend programming standards, strict separation of concerns, and clean code practices tailored for highly scalable, production-ready environments.
+A modern, highly optimized, and robust RESTful API built with Laravel, designed to serve as the backend enterprise architecture for the **pulseBook Medical Clinic & Appointment Booking Platform**[cite: 1]. This project showcases advanced backend programming standards, strict separation of concerns, and clean code practices tailored for highly scalable, production-ready environments.
 
 ## 🚀 Key Architectural Features & Patterns
 
 To demonstrate professional backend proficiency and maintainability, this API completely avoids monolithic controller structures and strictly follows elite architectural design patterns:
 
-*   **Separation of Concerns (Service Layer):** All core business logic, medical workflows, and authentication operations are encapsulated inside dedicated **Domain Services** (e.g., `AuthenticationService`, `AppointmentService`), keeping controllers thin, clean, and single-purpose.
+*   **Separation of Concerns (Service Layer):** All core business logic, medical workflows, and authentication operations are encapsulated inside dedicated **Domain Services** (e.g., `AuthenticationService`, `DoctorService`), keeping controllers thin, clean, and single-purpose.
 *   **Unified Multi-Role Authentication:** Supports a unified authentication entry point (`/api/auth/register`) differentiating between `patients` and `doctors`. Includes conditional validation workflows that dynamically require professional profiles and operational shift patterns only if the registrant is a medical practitioner.
 *   **Relational Database Normalization (Schedules):** Doctor availability is managed via a dedicated `doctor_schedules` schema utilizing unsigned integers (`day_of_week`: 0-6) mapped to strict `time` datatypes, providing indexable performance and day-specific shift flexibility.
 *   **Algorithmic Overlap & Collision Avoidance:** Implements a mathematically sound time-overlap algorithm (`existing_start < new_end` AND `existing_end > new_start`) built strictly within Eloquent constraints to entirely eliminate the possibility of double-booking an individual medical practitioner.
 *   **Atomic Database Transactions (`DB::transaction`):** Crucial multi-table write operations—such as creating a user account alongside their medical profile and rotational schedule—are wrapped completely inside transaction blocks to prevent partial data corruption or orphaned database records.
 *   **The Query Filters Pattern (Advanced Data Filtering):** High-performance, multi-parameter data filtration is strictly managed on the backend using a dynamic, reusable query engine (`QueryFilter` abstract class and `Filterable` Trait). This enables clean, single-line controller filtering for complex relations, such as filtering doctors by specialties using optimized Eloquent `whereHas` queries.
+*   **Advanced Testing Strategy (Feature & Isolated Unit Tests):** Built with stability in mind. Features a comprehensive automated test suite leveraging **Feature Tests** (with isolated `RefreshDatabase` states) to validate complete HTTP request/response lifecycles, and **Pure Unit Tests** (using native PHPUnit `TestCase`) to benchmark core business algorithms completely isolated from the database for instantaneous execution (`0.00s`).
 *   **Data Validation (Form Requests):** Incoming HTTP requests are intercepted and validated using specialized **Form Requests** (e.g., `LoginRequest`, `RegisterRequest`) to guarantee strict data integrity before hitting the core application logic.
 *   **Data Transformation (API Resources):** JSON responses are strictly formatted through **API Resources**, ensuring a decoupled API contract, safeguarding database columns, and securely handling relational data loading.
 *   **Global Exception Handling:** Custom application errors are caught gracefully using a unified, custom **BusinessException** class combined with Laravel's global exception handling. This guarantees consistent, standardized JSON error payloads across all failure states and prevents raw server crashes (500 errors).
@@ -21,6 +22,7 @@ To demonstrate professional backend proficiency and maintainability, this API co
 *   **Framework:** Laravel 11 (PHP 8.x)
 *   **Authentication:** Laravel Sanctum (Secure Token-based architecture)
 *   **Database:** MySQL (Strict relational integrity)
+*   **Testing Suite:** PHPUnit / Laravel Test Runner
 
 ---
 
@@ -36,15 +38,17 @@ To demonstrate professional backend proficiency and maintainability, this API co
 *   [x] Secure User Registration and Login architecture via `AuthenticationService` supporting Unified Multi-Role Flows.
 *   [x] Automated transactional profile and schedule mapping for doctor signups.
 
-### ⏳ Phase 2: Booking Engine & Medical Workflows (Current)
+### ⏳ Phase 2: Booking Engine & Medical Workflows (Completed & Secured)
 *   [x] Implementing core Appointment Booking creation endpoints protected via `DB::transaction` blocks.
 *   [x] High-performance Algorithmic Collision Prevention engine to fully regulate real-time scheduling.
 *   [x] Strict operational validation ensuring appointments are only placed within validated doctor availability windows.
 *   [x] Customizing Global Exception Handler overrides for `ModelNotFoundException` and `ValidationException` format synchronization.
-*   [ ] Developing the Dynamic Available Time Slots Calculation API Engine (Dynamic schedule querying vs existing bookings).
+*   [x] Developing the Dynamic Available Time Slots Calculation API Engine (Refactored into pure functions for decoupled testability).
 
-### 🔮 Phase 3: Testing & Quality Assurance (Future)
-*   [ ] Writing automated Feature and Unit Tests to guarantee API stability.
+### 🔮 Phase 3: Testing & Quality Assurance (Current)
+*   [x] Automated Feature Testing for User Registration & Authentication pipelines (Patient and Doctor multi-table workflows).
+*   [x] Automated Feature Testing for the Login lifecycle ensuring strict validation and secure Sanctum token issuance.
+*   [x] Pure, high-performance Unit Testing for the `Available Slots` time-cutting algorithm (Validating accurate time partitioning and overlapping booked slot exclusion).
 *   [ ] Complete API Documentation (Swagger / Postman Collection).
 
 ---

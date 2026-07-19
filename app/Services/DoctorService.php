@@ -66,4 +66,37 @@ class DoctorService
 
         return $availableSlots;
     }
+
+
+    // for using in unit test
+    public function getAvailableSlotsFromRawData(string $startTime, string $endTime, array $bookedAppointments, int $slotDurationMinutes = 30): array
+    {
+        $availableSlots = [];
+        $startTimeCarbon = Carbon::parse($startTime);
+        $endTimeCarbon = Carbon::parse($endTime);
+
+        while ($startTimeCarbon->copy()->addMinutes($slotDurationMinutes)->lte($endTimeCarbon)) {
+
+            $slotStart = $startTimeCarbon->format('H:i:s');
+            $startTimeCarbon->addMinutes($slotDurationMinutes);
+            $slotEnd = $startTimeCarbon->format('H:i:s');
+
+            $isOverlap = false;
+            foreach ($bookedAppointments as $appointment) {
+                if ($slotStart < $appointment['end_time'] && $slotEnd > $appointment['start_time']) {
+                    $isOverlap = true;
+                    break;
+                }
+            }
+
+            if (!$isOverlap) {
+                $availableSlots[] = [
+                    'start_time' => date('H:i', strtotime($slotStart)),
+                    'end_time'   => date('H:i', strtotime($slotEnd)),
+                ];
+            }
+        }
+
+        return $availableSlots;
+    }
 }

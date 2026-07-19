@@ -1,3 +1,4 @@
+```markdown
 # pulseBook-api
 
 A modern, highly optimized, and robust RESTful API built with Laravel, designed to serve as the backend enterprise architecture for the **pulseBook Medical Clinic & Appointment Booking Platform**. This project showcases advanced backend programming standards, strict separation of concerns, and clean code practices tailored for highly scalable, production-ready environments.
@@ -58,34 +59,47 @@ To demonstrate professional backend proficiency and maintainability, this API co
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/wofe-top/pulseBook-api.git
-    ```
+   git clone [https://github.com/wofe-top/pulseBook-api.git](https://github.com/wofe-top/pulseBook-api.git)
+
+```
+
+2. Install dependencies:
+```bash
+composer install
+
+```
 
 
-2.Install dependencies:
-    ```bash
-   composer install
-   ```
+3. Copy environment file and configure database:
+```bash
+cp .env.example .env
+php artisan key:generate
+
+```
 
 
-3.Copy environment file and configure database:
-    ```bash
-   cp .env.example .env
-    php artisan key:generate
-    ```
+4. Run migrations & seeders:
+```bash
+php artisan migrate --seed
 
-4.Run migrations & seeders:
-    ```bash
+```
 
-    php artisan migrate --seed
-    ```
 
-5.Run the automated test suite:
-    ```bash
-    php artisan test
-    ```
+5. Run the automated test suite:
+```bash
+php artisan test
 
-6.Generate or view API Documentation:
-    ```bash
-    php artisan scribe:generate
-    ```
+```
+
+
+6. Generate or view API Documentation:
+```bash
+php artisan scribe:generate
+
+```
+
+
+
+```
+
+```

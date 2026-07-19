@@ -98,8 +98,3 @@ php artisan scribe:generate
 
 ```
 
-
-
-```
-
-```

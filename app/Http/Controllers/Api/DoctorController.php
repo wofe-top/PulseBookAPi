@@ -22,6 +22,13 @@ class DoctorController extends Controller
     public function __construct(
         protected DoctorService  $doctorService
     ) {}
+
+
+    /**
+ *
+ *
+ * @authenticated
+ */
     public function index(DoctorProfileFilter $filters)
     {
 
@@ -32,6 +39,12 @@ class DoctorController extends Controller
     }
 
 
+
+    /**
+ *
+ *
+ * @authenticated
+ */
     public function getAvailableSlots(DoctorRequest $request, DoctorProfile $doctorProfile)
     {
 

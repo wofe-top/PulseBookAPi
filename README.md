@@ -1,6 +1,6 @@
 # pulseBook-api
 
-A modern, highly optimized, and robust RESTful API built with Laravel, designed to serve as the backend enterprise architecture for the **pulseBook Medical Clinic & Appointment Booking Platform**[cite: 1]. This project showcases advanced backend programming standards, strict separation of concerns, and clean code practices tailored for highly scalable, production-ready environments.
+A modern, highly optimized, and robust RESTful API built with Laravel, designed to serve as the backend enterprise architecture for the **pulseBook Medical Clinic & Appointment Booking Platform**. This project showcases advanced backend programming standards, strict separation of concerns, and clean code practices tailored for highly scalable, production-ready environments.
 
 ## 🚀 Key Architectural Features & Patterns
 
@@ -23,13 +23,14 @@ To demonstrate professional backend proficiency and maintainability, this API co
 *   **Authentication:** Laravel Sanctum (Secure Token-based architecture)
 *   **Database:** MySQL (Strict relational integrity)
 *   **Testing Suite:** PHPUnit / Laravel Test Runner
+*   **API Documentation:** Laravel Scribe (OpenAPI / Postman Integration)
 
 ---
 
 ## 📊 Project Status & Roadmap
 
 ### 🏁 Phase 1: Core Infrastructure & Identity Architecture (Completed)
-*   [x] Relational Database Schema design with structured migrations (Users, Doctor Profiles, Specialties, Appointments)[cite: 1].
+*   [x] Relational Database Schema design with structured migrations (Users, Doctor Profiles, Specialties, Appointments).
 *   [x] Implementation of the dedicated `Service Layer` to isolate business logic.
 *   [x] Custom Validation Engine utilizing conditional rules via dedicated `Form Requests`.
 *   [x] Standardized API output payload formatting and pagination handling using `API Resources`.
@@ -45,11 +46,11 @@ To demonstrate professional backend proficiency and maintainability, this API co
 *   [x] Customizing Global Exception Handler overrides for `ModelNotFoundException` and `ValidationException` format synchronization.
 *   [x] Developing the Dynamic Available Time Slots Calculation API Engine (Refactored into pure functions for decoupled testability).
 
-### 🔮 Phase 3: Testing & Quality Assurance (Current)
+### 🔮 Phase 3: Testing & Quality Assurance (Completed)
 *   [x] Automated Feature Testing for User Registration & Authentication pipelines (Patient and Doctor multi-table workflows).
 *   [x] Automated Feature Testing for the Login lifecycle ensuring strict validation and secure Sanctum token issuance.
 *   [x] Pure, high-performance Unit Testing for the `Available Slots` time-cutting algorithm (Validating accurate time partitioning and overlapping booked slot exclusion).
-*   [ ] Complete API Documentation (Swagger / Postman Collection).
+*   [x] Complete API Documentation (Interactive OpenApi Web Docs & Postman Collection generated via Scribe).
 
 ---
 

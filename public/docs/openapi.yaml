@@ -1,0 +1,331 @@
+openapi: 3.0.3
+info:
+  title: 'Laravel API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+tags:
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []
+paths:
+  /api/auth/register:
+    post:
+      summary: ''
+      operationId: postApiAuthRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vmqeopfuudtdsufvyvddq
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: kunde.eloisa@example.com
+                phone:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: hfqcoynlazghdtqtq
+                password:
+                  type: string
+                  description: ''
+                  example: consequatur
+                role:
+                  type: string
+                  description: ''
+                  example: patient
+                  enum:
+                    - patient
+                    - doctor
+                experience_years:
+                  type: integer
+                  description: 'This field is required when <code>role</code> is <code>doctor</code>. Must be at least 0.'
+                  example: 45
+                consultation_fee:
+                  type: number
+                  description: 'This field is required when <code>role</code> is <code>doctor</code>. Must be at least 0.'
+                  example: 56
+                doctor_schedule:
+                  type: array
+                  description: "optional The doctor's weekly operational shifts. Required if role is 'doctor'."
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      day_of_week:
+                        type: integer
+                        description: 'Day index (0 for Sunday, 1 for Monday, etc.).'
+                        example: 1
+                      start_time:
+                        type: string
+                        description: 'Shift start time in HH:MM format.'
+                        example: '09:00'
+                      end_time:
+                        type: string
+                        description: 'Shift end time in HH:MM format.'
+                        example: '17:00'
+                    required:
+                      - day_of_week
+                      - start_time
+                      - end_time
+                bio:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+              required:
+                - name
+                - email
+                - phone
+                - password
+                - role
+      security: []
+  /api/auth/login:
+    post:
+      summary: ''
+      operationId: postApiAuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: qkunze@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: consequatur
+              required:
+                - email
+                - password
+      security: []
+  /api/me:
+    get:
+      summary: ''
+      operationId: getApiMe
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'Unauthenticated or token expired.'
+                  errors: null
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Unauthenticated or token expired.'
+                  errors:
+                    type: string
+                    example: null
+                    nullable: true
+      tags:
+        - Endpoints
+  /api/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiAuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+  /api/doctor:
+    get:
+      summary: ''
+      operationId: getApiDoctor
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'Unauthenticated or token expired.'
+                  errors: null
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Unauthenticated or token expired.'
+                  errors:
+                    type: string
+                    example: null
+                    nullable: true
+      tags:
+        - Endpoints
+  '/api/doctors/{doctorProfile_id}/available-slots':
+    get:
+      summary: ''
+      operationId: getApiDoctorsDoctorProfile_idAvailableSlots
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'Unauthenticated or token expired.'
+                  errors: null
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Unauthenticated or token expired.'
+                  errors:
+                    type: string
+                    example: null
+                    nullable: true
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>today</code>.'
+                  example: '2107-08-18'
+              required:
+                - date
+    parameters:
+      -
+        in: path
+        name: doctorProfile_id
+        description: 'The ID of the doctorProfile.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/appointments:
+    get:
+      summary: ''
+      operationId: getApiAppointments
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'Unauthenticated or token expired.'
+                  errors: null
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Unauthenticated or token expired.'
+                  errors:
+                    type: string
+                    example: null
+                    nullable: true
+      tags:
+        - Endpoints
+    post:
+      summary: ''
+      operationId: postApiAppointments
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doctor_profile_id:
+                  type: string
+                  description: 'Must match an existing stored value.'
+                  example: consequatur
+                patient_id:
+                  type: string
+                  description: 'Must match an existing stored value.'
+                  example: consequatur
+                appointment_date:
+                  type: string
+                  description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+                  example: '2026-07-19'
+                start_time:
+                  type: string
+                  description: 'Must be a valid date in the format <code>H:i</code>.'
+                  example: '15:49'
+                end_time:
+                  type: string
+                  description: 'Must be a valid date in the format <code>H:i</code>.'
+                  example: '15:49'
+                notes:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: true
+              required:
+                - doctor_profile_id
+                - patient_id
+                - appointment_date
+                - start_time
+                - end_time

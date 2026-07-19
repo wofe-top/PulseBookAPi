@@ -22,6 +22,13 @@ class RegisterRequest extends FormRequest
      *
      * @return array<string, ValidationRule|array<mixed>|string>
      */
+
+    /**
+     * @bodyParam doctor_schedule object[] optional The doctor's weekly operational shifts. Required if role is 'doctor'.
+     * @bodyParam doctor_schedule[].day_of_week integer required Day index (0 for Sunday, 1 for Monday, etc.). Example: 1
+     * @bodyParam doctor_schedule[].start_time string required Shift start time in HH:MM format. Example: 09:00
+     * @bodyParam doctor_schedule[].end_time string required Shift end time in HH:MM format. Example: 17:00
+     */
     public function rules(): array
     {
         return [

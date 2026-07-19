@@ -23,7 +23,11 @@ class AppointmentController extends Controller
 
 
 
-
+/**
+ *
+ *
+ * @authenticated
+ */
     public function index(AppointmentFilter  $filters)
     {
         $appointments = $this->appointmentService->index($filters);
@@ -33,7 +37,11 @@ class AppointmentController extends Controller
         ]);
     }
 
-
+/**
+ *
+ *
+ * @authenticated
+ */
     public function store(StoreAppointmentRequest $request)
     {
         $appointment = $this->appointmentService->store($request->validated());

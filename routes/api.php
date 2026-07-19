@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     // Doctor
     Route::get('/doctor', [DoctorController::class, 'index']);
+    Route::get('/doctors/{doctorProfile}/available-slots', [DoctorController::class, 'getAvailableSlots']);
 
     // Appointments
     Route::get('/appointments', [AppointmentController::class, 'index']);

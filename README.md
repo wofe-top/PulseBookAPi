@@ -6,7 +6,8 @@ A modern, highly optimized, and robust RESTful API built with Laravel, designed 
 
 To demonstrate professional backend proficiency and maintainability, this API completely avoids monolithic controller structures and strictly follows elite architectural design patterns:
 
-*   **Separation of Concerns (Service Layer):** All core business logic, medical workflows, and authentication operations are encapsulated inside dedicated **Domain Services** (e.g., `AuthenticationService`, `DoctorService`), keeping controllers thin, clean, and single-purpose.
+*   **Separation of Concerns (Service Layer):** All core business logic, medical workflows, and authentication operations are encapsulated inside dedicated **Domain Services** (e.g., `AuthenticationService`, `DoctorService`, `AppointmentService`), keeping controllers thin, clean, and single-purpose.
+*   **Contract-Driven Notification Abstraction (`Interface` & IoC Binding):** Message delivery workflows (e.g., patient appointment confirmations) adhere strictly to an explicit contract interface (`NotificationServiceInterface`). By leveraging Laravel’s Service Container binding (`bind()`), concrete notification drivers (e.g., `SmsNotificationService`, `WhatsAppNotificationService`) can be swapped system-wide via a single configuration line without altering core domain business logic.
 *   **Unified Multi-Role Authentication:** Supports a unified authentication entry point (`/api/auth/register`) differentiating between `patients` and `doctors`. Includes conditional validation workflows that dynamically require professional profiles and operational shift patterns only if the registrant is a medical practitioner.
 *   **Relational Database Normalization (Schedules):** Doctor availability is managed via a dedicated `doctor_schedules` schema utilizing unsigned integers (`day_of_week`: 0-6) mapped to strict `time` datatypes, providing indexable performance and day-specific shift flexibility.
 *   **Algorithmic Overlap & Collision Avoidance:** Implements a mathematically sound time-overlap algorithm (`existing_start < new_end` AND `existing_end > new_start`) built strictly within Eloquent constraints to entirely eliminate the possibility of double-booking an individual medical practitioner.
@@ -43,6 +44,7 @@ To demonstrate professional backend proficiency and maintainability, this API co
 *   [x] Implementing core Appointment Booking creation endpoints protected via `DB::transaction` blocks.
 *   [x] High-performance Algorithmic Collision Prevention engine to fully regulate real-time scheduling.
 *   [x] Strict operational validation ensuring appointments are only placed within validated doctor availability windows.
+*   [x] Contract-based Notification Architecture (`NotificationServiceInterface`) supporting interchangeable drivers (SMS / WhatsApp) injected through Laravel's Service Container.
 *   [x] Customizing Global Exception Handler overrides for `ModelNotFoundException` and `ValidationException` format synchronization.
 *   [x] Developing the Dynamic Available Time Slots Calculation API Engine (Refactored into pure functions for decoupled testability).
 
@@ -59,8 +61,7 @@ To demonstrate professional backend proficiency and maintainability, this API co
 1. Clone the repository:
    ```bash
    git clone [https://github.com/wofe-top/pulseBook-api.git](https://github.com/wofe-top/pulseBook-api.git)
-
-   ## ⚙️ Installation & Setup
+   cd pulseBook-api
 
 2. Install dependencies:
     ```bash

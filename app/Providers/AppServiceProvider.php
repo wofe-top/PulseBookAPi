@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Interfaces\NotificationServiceInterface;
+use App\Services\SmsNotificationService;
+use App\Services\WhatsAppNotificationService;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -11,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(
+            NotificationServiceInterface::class,
+            SmsNotificationService::class
+        );
     }
 
     /**

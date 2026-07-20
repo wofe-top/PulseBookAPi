@@ -9,8 +9,19 @@ use App\Http\Resources\AppointmentResource;
 use App\Models\DoctorSchedule;
 use App\Exceptions\BusinessException;
 
+
+use App\Interfaces\NotificationServiceInterface;
+
 class AppointmentService
 {
+
+    protected $notificationService;
+
+    public function __construct(NotificationServiceInterface $notificationService)
+    {
+        $this->notificationService = $notificationService;
+    }
+
 
 
 
@@ -54,6 +65,9 @@ class AppointmentService
         if ($hasOverlap) {
             throw new BusinessException(__('This time slot is already booked for this doctor.'));
         }
+
+
+        $this->notificationService->sendNotification($data['patient_id'], 'You have a new appointment');
 
 
 

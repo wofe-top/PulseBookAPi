@@ -264,7 +264,7 @@ endpoints:
       -
         custom: []
         status: 401
-        content: '{"status":"error","message":"Unauthenticated or token expired.","errors":null}'
+        content: '{"status":"error","message":"Unauthenticated. Please provide a valid token.","errors":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -343,7 +343,7 @@ endpoints:
       -
         custom: []
         status: 401
-        content: '{"status":"error","message":"Unauthenticated or token expired.","errors":null}'
+        content: '{"status":"error","message":"Unauthenticated. Please provide a valid token.","errors":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -398,20 +398,20 @@ endpoints:
         name: date
         description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>today</code>.'
         required: true
-        example: '2107-08-18'
+        example: '2107-08-19'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      date: '2107-08-18'
+      date: '2107-08-19'
     fileParameters: []
     responses:
       -
         custom: []
         status: 401
-        content: '{"status":"error","message":"Unauthenticated or token expired.","errors":null}'
+        content: '{"status":"error","message":"Unauthenticated. Please provide a valid token.","errors":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -455,7 +455,7 @@ endpoints:
       -
         custom: []
         status: 401
-        content: '{"status":"error","message":"Unauthenticated or token expired.","errors":null}'
+        content: '{"status":"error","message":"Unauthenticated. Please provide a valid token.","errors":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -520,7 +520,7 @@ endpoints:
         name: appointment_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: true
-        example: '2026-07-19'
+        example: '2026-07-20'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -531,7 +531,7 @@ endpoints:
         name: start_time
         description: 'Must be a valid date in the format <code>H:i</code>.'
         required: true
-        example: '15:49'
+        example: '13:06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -542,7 +542,7 @@ endpoints:
         name: end_time
         description: 'Must be a valid date in the format <code>H:i</code>.'
         required: true
-        example: '15:49'
+        example: '13:06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -562,9 +562,9 @@ endpoints:
     cleanBodyParameters:
       doctor_profile_id: consequatur
       patient_id: consequatur
-      appointment_date: '2026-07-19'
-      start_time: '15:49'
-      end_time: '15:49'
+      appointment_date: '2026-07-20'
+      start_time: '13:06'
+      end_time: '13:06'
       notes: consequatur
     fileParameters: []
     responses: []

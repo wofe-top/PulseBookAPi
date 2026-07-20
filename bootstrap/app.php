@@ -33,44 +33,10 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
 
-        $exceptions->render(function (AuthenticationException $e, $request) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthenticated or token expired.',
-                'errors' => null
-            ], 401);
-        });
-        $exceptions->render(function (RouteNotFoundException $e, $request) {
-            if ($e->getMessage()) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Unauthenticated. Please provide a valid token.',
-                    'errors' => null
-                ], 401);
-            }
-        });
-        $exceptions->render(function (ModelNotFoundException $e, $request) {
-            if ($e->getMessage() === 'Route [login] not defined.') {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Model Not Found.',
-                    'errors' => null
-                ], 401);
-            }
-        });
 
         $exceptions->render(function (Throwable $e, Request $request) {
 
             if ($request->is('api/*')) {
-
-
-                if ($e instanceof NotFoundHttpException) {
-                    return response()->json([
-                        'status' => 'error',
-                        'message' => 'The Items or Route Not Found',
-                        'errors' => null
-                    ], 404);
-                }
 
 
                 if ($e instanceof ValidationException) {
@@ -80,6 +46,7 @@ return Application::configure(basePath: dirname(__DIR__))
                         'errors' => $e->errors()
                     ], 422);
                 }
+
 
 
                 if (
@@ -94,8 +61,6 @@ return Application::configure(basePath: dirname(__DIR__))
                 }
 
 
-
-
                 if ($e instanceof ModelNotFoundException || $e instanceof NotFoundHttpException) {
                     return response()->json([
                         'status' => 'error',
@@ -105,6 +70,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 }
 
 
+
                 if ($e instanceof BusinessException) {
                     return response()->json([
                         'status' => 'error',
@@ -112,7 +78,6 @@ return Application::configure(basePath: dirname(__DIR__))
                         'errors' => null
                     ], 400);
                 }
-
 
 
                 return response()->json([

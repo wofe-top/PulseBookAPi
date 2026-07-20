@@ -147,7 +147,7 @@ paths:
                 type: object
                 example:
                   status: error
-                  message: 'Unauthenticated or token expired.'
+                  message: 'Unauthenticated. Please provide a valid token.'
                   errors: null
                 properties:
                   status:
@@ -155,7 +155,7 @@ paths:
                     example: error
                   message:
                     type: string
-                    example: 'Unauthenticated or token expired.'
+                    example: 'Unauthenticated. Please provide a valid token.'
                   errors:
                     type: string
                     example: null
@@ -186,7 +186,7 @@ paths:
                 type: object
                 example:
                   status: error
-                  message: 'Unauthenticated or token expired.'
+                  message: 'Unauthenticated. Please provide a valid token.'
                   errors: null
                 properties:
                   status:
@@ -194,7 +194,7 @@ paths:
                     example: error
                   message:
                     type: string
-                    example: 'Unauthenticated or token expired.'
+                    example: 'Unauthenticated. Please provide a valid token.'
                   errors:
                     type: string
                     example: null
@@ -216,7 +216,7 @@ paths:
                 type: object
                 example:
                   status: error
-                  message: 'Unauthenticated or token expired.'
+                  message: 'Unauthenticated. Please provide a valid token.'
                   errors: null
                 properties:
                   status:
@@ -224,7 +224,7 @@ paths:
                     example: error
                   message:
                     type: string
-                    example: 'Unauthenticated or token expired.'
+                    example: 'Unauthenticated. Please provide a valid token.'
                   errors:
                     type: string
                     example: null
@@ -241,7 +241,7 @@ paths:
                 date:
                   type: string
                   description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>today</code>.'
-                  example: '2107-08-18'
+                  example: '2107-08-19'
               required:
                 - date
     parameters:
@@ -268,7 +268,7 @@ paths:
                 type: object
                 example:
                   status: error
-                  message: 'Unauthenticated or token expired.'
+                  message: 'Unauthenticated. Please provide a valid token.'
                   errors: null
                 properties:
                   status:
@@ -276,7 +276,7 @@ paths:
                     example: error
                   message:
                     type: string
-                    example: 'Unauthenticated or token expired.'
+                    example: 'Unauthenticated. Please provide a valid token.'
                   errors:
                     type: string
                     example: null
@@ -309,15 +309,15 @@ paths:
                 appointment_date:
                   type: string
                   description: 'Must be a valid date in the format <code>Y-m-d</code>.'
-                  example: '2026-07-19'
+                  example: '2026-07-20'
                 start_time:
                   type: string
                   description: 'Must be a valid date in the format <code>H:i</code>.'
-                  example: '15:49'
+                  example: '13:06'
                 end_time:
                   type: string
                   description: 'Must be a valid date in the format <code>H:i</code>.'
-                  example: '15:49'
+                  example: '13:06'
                 notes:
                   type: string
                   description: ''

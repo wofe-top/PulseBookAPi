@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel API Documentation",
-        "_postman_id": "f6b74d39-b3bd-4e09-bdde-b274772cede5",
+        "_postman_id": "84aaebd7-13d7-47b1-b2a2-ce83d8d5491e",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -121,7 +121,7 @@
                                 }
                             ],
                             "code": 401,
-                            "body": "{\"status\":\"error\",\"message\":\"Unauthenticated or token expired.\",\"errors\":null}",
+                            "body": "{\"status\":\"error\",\"message\":\"Unauthenticated. Please provide a valid token.\",\"errors\":null}",
                             "name": ""
                         }
                     ]
@@ -191,7 +191,7 @@
                                 }
                             ],
                             "code": 401,
-                            "body": "{\"status\":\"error\",\"message\":\"Unauthenticated or token expired.\",\"errors\":null}",
+                            "body": "{\"status\":\"error\",\"message\":\"Unauthenticated. Please provide a valid token.\",\"errors\":null}",
                             "name": ""
                         }
                     ]
@@ -226,7 +226,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"date\":\"2107-08-18\"}"
+                            "raw": "{\"date\":\"2107-08-19\"}"
                         },
                         "description": ""
                     },
@@ -247,7 +247,7 @@
                                 }
                             ],
                             "code": 401,
-                            "body": "{\"status\":\"error\",\"message\":\"Unauthenticated or token expired.\",\"errors\":null}",
+                            "body": "{\"status\":\"error\",\"message\":\"Unauthenticated. Please provide a valid token.\",\"errors\":null}",
                             "name": ""
                         }
                     ]
@@ -292,7 +292,7 @@
                                 }
                             ],
                             "code": 401,
-                            "body": "{\"status\":\"error\",\"message\":\"Unauthenticated or token expired.\",\"errors\":null}",
+                            "body": "{\"status\":\"error\",\"message\":\"Unauthenticated. Please provide a valid token.\",\"errors\":null}",
                             "name": ""
                         }
                     ]
@@ -319,7 +319,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"doctor_profile_id\":\"consequatur\",\"patient_id\":\"consequatur\",\"appointment_date\":\"2026-07-19\",\"start_time\":\"15:49\",\"end_time\":\"15:49\",\"notes\":\"consequatur\"}"
+                            "raw": "{\"doctor_profile_id\":\"consequatur\",\"patient_id\":\"consequatur\",\"appointment_date\":\"2026-07-20\",\"start_time\":\"13:06\",\"end_time\":\"13:06\",\"notes\":\"consequatur\"}"
                         },
                         "description": ""
                     },

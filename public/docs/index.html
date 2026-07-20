@@ -106,7 +106,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: July 19, 2026</li>
+        <li>Last updated: July 20, 2026</li>
     </ul>
 </div>
 
@@ -623,7 +623,7 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Unauthenticated or token expired.&quot;,
+    &quot;message&quot;: &quot;Unauthenticated. Please provide a valid token.&quot;,
     &quot;errors&quot;: null
 }</code>
  </pre>
@@ -893,7 +893,7 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Unauthenticated or token expired.&quot;,
+    &quot;message&quot;: &quot;Unauthenticated. Please provide a valid token.&quot;,
     &quot;errors&quot;: null
 }</code>
  </pre>
@@ -1002,7 +1002,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"date\": \"2107-08-18\"
+    \"date\": \"2107-08-19\"
 }"
 </code></pre></div>
 
@@ -1019,7 +1019,7 @@ const headers = {
 };
 
 let body = {
-    "date": "2107-08-18"
+    "date": "2107-08-19"
 };
 
 fetch(url, {
@@ -1045,7 +1045,7 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Unauthenticated or token expired.&quot;,
+    &quot;message&quot;: &quot;Unauthenticated. Please provide a valid token.&quot;,
     &quot;errors&quot;: null
 }</code>
  </pre>
@@ -1154,10 +1154,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="GETapi-doctors--doctorProfile_id--available-slots"
-               value="2107-08-18"
+               value="2107-08-19"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>today</code>. Example: <code>2107-08-18</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>today</code>. Example: <code>2107-08-19</code></p>
         </div>
         </form>
 
@@ -1215,7 +1215,7 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Unauthenticated or token expired.&quot;,
+    &quot;message&quot;: &quot;Unauthenticated. Please provide a valid token.&quot;,
     &quot;errors&quot;: null
 }</code>
  </pre>
@@ -1326,9 +1326,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"doctor_profile_id\": \"consequatur\",
     \"patient_id\": \"consequatur\",
-    \"appointment_date\": \"2026-07-19\",
-    \"start_time\": \"15:49\",
-    \"end_time\": \"15:49\",
+    \"appointment_date\": \"2026-07-20\",
+    \"start_time\": \"13:06\",
+    \"end_time\": \"13:06\",
     \"notes\": \"consequatur\"
 }"
 </code></pre></div>
@@ -1348,9 +1348,9 @@ const headers = {
 let body = {
     "doctor_profile_id": "consequatur",
     "patient_id": "consequatur",
-    "appointment_date": "2026-07-19",
-    "start_time": "15:49",
-    "end_time": "15:49",
+    "appointment_date": "2026-07-20",
+    "start_time": "13:06",
+    "end_time": "13:06",
     "notes": "consequatur"
 };
 
@@ -1479,10 +1479,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_date"                data-endpoint="POSTapi-appointments"
-               value="2026-07-19"
+               value="2026-07-20"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2026-07-19</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2026-07-20</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -1491,10 +1491,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_time"                data-endpoint="POSTapi-appointments"
-               value="15:49"
+               value="13:06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>H:i</code>. Example: <code>15:49</code></p>
+<p>Must be a valid date in the format <code>H:i</code>. Example: <code>13:06</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_time</code></b>&nbsp;&nbsp;
@@ -1503,10 +1503,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="end_time"                data-endpoint="POSTapi-appointments"
-               value="15:49"
+               value="13:06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>H:i</code>. Example: <code>15:49</code></p>
+<p>Must be a valid date in the format <code>H:i</code>. Example: <code>13:06</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;

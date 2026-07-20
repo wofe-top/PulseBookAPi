@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+use App\Enums\AppointmentStatus;
+
 use App\Traits\Filterable;
 
 class Appointment extends Model
@@ -25,7 +27,7 @@ class Appointment extends Model
         'notes',
     ];
 
-    protected $casts = ['appointment_date' => 'date'];
+    protected $casts = ['appointment_date' => 'date', 'status' => AppointmentStatus::class];
 
     public function patient(): BelongsTo
     {

@@ -9,13 +9,10 @@ use Illuminate\Http\Request;
 abstract class QueryFilter
 {
 
-    protected $request;
+
     protected $builder;
 
-    public function __construct(Request $request)
-    {
-        $this->request = $request;
-    }
+    public function __construct(protected Request $request) {}
 
 
     public function apply(Builder $builder)

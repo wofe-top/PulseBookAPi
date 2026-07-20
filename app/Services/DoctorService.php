@@ -9,6 +9,9 @@ use App\Models\Appointment;
 use App\Http\Resources\DoctorResource;
 use Carbon\Carbon;
 
+use App\Enums\AppointmentStatus;
+
+
 class DoctorService
 {
     public function index($filters)
@@ -31,7 +34,7 @@ class DoctorService
 
         $bookedAppointments = Appointment::where('doctor_profile_id', $doctorProfile->id)
             ->where('appointment_date', $date)
-            ->where('status', '!=', 'cancelled')
+            ->where('status', '!=', AppointmentStatus::CANCELLED)
             ->get(['start_time', 'end_time']);
 
 

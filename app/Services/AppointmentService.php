@@ -9,21 +9,17 @@ use App\Http\Resources\AppointmentResource;
 use App\Models\DoctorSchedule;
 use App\Exceptions\BusinessException;
 
+use App\Enums\AppointmentStatus;
+
 
 use App\Interfaces\NotificationServiceInterface;
 
 class AppointmentService
 {
 
-    protected $notificationService;
-
-    public function __construct(NotificationServiceInterface $notificationService)
-    {
-        $this->notificationService = $notificationService;
-    }
 
 
-
+    public function __construct(protected NotificationServiceInterface $notificationService) {}
 
     public function index($filters)
     {
@@ -55,7 +51,7 @@ class AppointmentService
 
         $hasOverlap = Appointment::where('doctor_id', $data['doctor_profile_id'])
             ->where('appointment_date', $data['appointment_date'])
-            ->where('status', '!=', 'cancelled')
+            ->where('status', '!=', AppointmentStatus::CANCELLED)
             ->where(function ($query) use ($data) {
                 $query->where('start_time', '<', $data['end_time'])
                     ->where('end_time', '>', $data['start_time']);

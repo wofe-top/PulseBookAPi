@@ -56,7 +56,7 @@ paths:
                 role:
                   type: string
                   description: ''
-                  example: patient
+                  example: doctor
                   enum:
                     - patient
                     - doctor
@@ -241,7 +241,7 @@ paths:
                 date:
                   type: string
                   description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>today</code>.'
-                  example: '2107-08-19'
+                  example: '2107-08-22'
               required:
                 - date
     parameters:
@@ -309,15 +309,15 @@ paths:
                 appointment_date:
                   type: string
                   description: 'Must be a valid date in the format <code>Y-m-d</code>.'
-                  example: '2026-07-20'
+                  example: '2026-07-23'
                 start_time:
                   type: string
                   description: 'Must be a valid date in the format <code>H:i</code>.'
-                  example: '13:06'
+                  example: '16:45'
                 end_time:
                   type: string
                   description: 'Must be a valid date in the format <code>H:i</code>.'
-                  example: '13:06'
+                  example: '16:45'
                 notes:
                   type: string
                   description: ''
@@ -329,3 +329,21 @@ paths:
                 - appointment_date
                 - start_time
                 - end_time
+  '/api/appointments/{appointment_id}/cancel':
+    patch:
+      summary: ''
+      operationId: patchApiAppointmentsAppointment_idCancel
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: appointment_id
+        description: 'The ID of the appointment.'
+        example: 1
+        required: true
+        schema:
+          type: integer

@@ -16,7 +16,7 @@ class AppointmentFilter extends QueryFilter
     }
     public function doctor_id($value)
     {
-        return $this->builder->where('doctor_id', $value);
+        return $this->builder->where('doctor_profile_id', $value);
     }
     public function patient_id($value)
     {

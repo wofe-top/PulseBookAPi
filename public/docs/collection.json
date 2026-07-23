@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel API Documentation",
-        "_postman_id": "84aaebd7-13d7-47b1-b2a2-ce83d8d5491e",
+        "_postman_id": "ec66b08e-8b64-44f5-8cb1-c11af38dd8df",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"vmqeopfuudtdsufvyvddq\",\"email\":\"kunde.eloisa@example.com\",\"phone\":\"hfqcoynlazghdtqtq\",\"password\":\"consequatur\",\"role\":\"patient\",\"experience_years\":45,\"consultation_fee\":56,\"doctor_schedule\":[{\"day_of_week\":1,\"start_time\":\"09:00\",\"end_time\":\"17:00\"}]}"
+                            "raw": "{\"name\":\"vmqeopfuudtdsufvyvddq\",\"email\":\"kunde.eloisa@example.com\",\"phone\":\"hfqcoynlazghdtqtq\",\"password\":\"consequatur\",\"role\":\"doctor\",\"experience_years\":45,\"consultation_fee\":56,\"doctor_schedule\":[{\"day_of_week\":1,\"start_time\":\"09:00\",\"end_time\":\"17:00\"}]}"
                         },
                         "description": "",
                         "auth": {
@@ -226,7 +226,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"date\":\"2107-08-19\"}"
+                            "raw": "{\"date\":\"2107-08-22\"}"
                         },
                         "description": ""
                     },
@@ -319,8 +319,41 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"doctor_profile_id\":\"consequatur\",\"patient_id\":\"consequatur\",\"appointment_date\":\"2026-07-20\",\"start_time\":\"13:06\",\"end_time\":\"13:06\",\"notes\":\"consequatur\"}"
+                            "raw": "{\"doctor_profile_id\":\"consequatur\",\"patient_id\":\"consequatur\",\"appointment_date\":\"2026-07-23\",\"start_time\":\"16:45\",\"end_time\":\"16:45\",\"notes\":\"consequatur\"}"
                         },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PATCH api\/appointments\/{appointment_id}\/cancel",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/appointments\/:appointment_id\/cancel",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/appointments\/:appointment_id\/cancel",
+                            "variable": [
+                                {
+                                    "id": "appointment_id",
+                                    "key": "appointment_id",
+                                    "value": 1,
+                                    "description": "The ID of the appointment."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
                         "description": ""
                     },
                     "response": []

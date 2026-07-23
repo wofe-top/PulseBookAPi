@@ -95,6 +95,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-appointments">
                                 <a href="#endpoints-POSTapi-appointments">POST api/appointments</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PATCHapi-appointments--appointment_id--cancel">
+                                <a href="#endpoints-PATCHapi-appointments--appointment_id--cancel">PATCH api/appointments/{appointment_id}/cancel</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -106,7 +109,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: July 20, 2026</li>
+        <li>Last updated: July 23, 2026</li>
     </ul>
 </div>
 
@@ -152,7 +155,7 @@ You can switch the language used with the tabs at the top right (or from the nav
     \"email\": \"kunde.eloisa@example.com\",
     \"phone\": \"hfqcoynlazghdtqtq\",
     \"password\": \"consequatur\",
-    \"role\": \"patient\",
+    \"role\": \"doctor\",
     \"experience_years\": 45,
     \"consultation_fee\": 56,
     \"doctor_schedule\": [
@@ -181,7 +184,7 @@ let body = {
     "email": "kunde.eloisa@example.com",
     "phone": "hfqcoynlazghdtqtq",
     "password": "consequatur",
-    "role": "patient",
+    "role": "doctor",
     "experience_years": 45,
     "consultation_fee": 56,
     "doctor_schedule": [
@@ -330,10 +333,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="role"                data-endpoint="POSTapi-auth-register"
-               value="patient"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>patient</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>doctor</code></li></ul>
         </div>
@@ -1002,7 +1005,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"date\": \"2107-08-19\"
+    \"date\": \"2107-08-22\"
 }"
 </code></pre></div>
 
@@ -1019,7 +1022,7 @@ const headers = {
 };
 
 let body = {
-    "date": "2107-08-19"
+    "date": "2107-08-22"
 };
 
 fetch(url, {
@@ -1154,10 +1157,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="GETapi-doctors--doctorProfile_id--available-slots"
-               value="2107-08-19"
+               value="2107-08-22"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>today</code>. Example: <code>2107-08-19</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>today</code>. Example: <code>2107-08-22</code></p>
         </div>
         </form>
 
@@ -1326,9 +1329,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"doctor_profile_id\": \"consequatur\",
     \"patient_id\": \"consequatur\",
-    \"appointment_date\": \"2026-07-20\",
-    \"start_time\": \"13:06\",
-    \"end_time\": \"13:06\",
+    \"appointment_date\": \"2026-07-23\",
+    \"start_time\": \"16:45\",
+    \"end_time\": \"16:45\",
     \"notes\": \"consequatur\"
 }"
 </code></pre></div>
@@ -1348,9 +1351,9 @@ const headers = {
 let body = {
     "doctor_profile_id": "consequatur",
     "patient_id": "consequatur",
-    "appointment_date": "2026-07-20",
-    "start_time": "13:06",
-    "end_time": "13:06",
+    "appointment_date": "2026-07-23",
+    "start_time": "16:45",
+    "end_time": "16:45",
     "notes": "consequatur"
 };
 
@@ -1479,10 +1482,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_date"                data-endpoint="POSTapi-appointments"
-               value="2026-07-20"
+               value="2026-07-23"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2026-07-20</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2026-07-23</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -1491,10 +1494,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_time"                data-endpoint="POSTapi-appointments"
-               value="13:06"
+               value="16:45"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>H:i</code>. Example: <code>13:06</code></p>
+<p>Must be a valid date in the format <code>H:i</code>. Example: <code>16:45</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_time</code></b>&nbsp;&nbsp;
@@ -1503,10 +1506,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="end_time"                data-endpoint="POSTapi-appointments"
-               value="13:06"
+               value="16:45"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>H:i</code>. Example: <code>13:06</code></p>
+<p>Must be a valid date in the format <code>H:i</code>. Example: <code>16:45</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -1521,6 +1524,145 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>consequatur</code></p>
         </div>
         </form>
+
+                    <h2 id="endpoints-PATCHapi-appointments--appointment_id--cancel">PATCH api/appointments/{appointment_id}/cancel</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PATCHapi-appointments--appointment_id--cancel">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PATCH \
+    "http://localhost/api/appointments/1/cancel" \
+    --header "Authorization: Paste your Sanctum token here" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/appointments/1/cancel"
+);
+
+const headers = {
+    "Authorization": "Paste your Sanctum token here",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "PATCH",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PATCHapi-appointments--appointment_id--cancel">
+</span>
+<span id="execution-results-PATCHapi-appointments--appointment_id--cancel" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PATCHapi-appointments--appointment_id--cancel"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PATCHapi-appointments--appointment_id--cancel"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PATCHapi-appointments--appointment_id--cancel" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PATCHapi-appointments--appointment_id--cancel">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PATCHapi-appointments--appointment_id--cancel" data-method="PATCH"
+      data-path="api/appointments/{appointment_id}/cancel"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-appointments--appointment_id--cancel', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PATCHapi-appointments--appointment_id--cancel"
+                    onclick="tryItOut('PATCHapi-appointments--appointment_id--cancel');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PATCHapi-appointments--appointment_id--cancel"
+                    onclick="cancelTryOut('PATCHapi-appointments--appointment_id--cancel');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PATCHapi-appointments--appointment_id--cancel"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/appointments/{appointment_id}/cancel</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PATCHapi-appointments--appointment_id--cancel"
+               value="Paste your Sanctum token here"
+               data-component="header">
+    <br>
+<p>Example: <code>Paste your Sanctum token here</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PATCHapi-appointments--appointment_id--cancel"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PATCHapi-appointments--appointment_id--cancel"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>appointment_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="appointment_id"                data-endpoint="PATCHapi-appointments--appointment_id--cancel"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the appointment. Example: <code>1</code></p>
+            </div>
+                    </form>
 
             
 

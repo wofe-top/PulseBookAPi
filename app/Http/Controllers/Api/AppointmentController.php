@@ -9,6 +9,7 @@ use App\Http\Resources\AppointmentResource;
 
 use App\Services\AppointmentService;
 use App\Http\Requests\Api\StoreAppointmentRequest;
+use App\Http\Requests\Api\CancelAppointmentRequest;
 
 use Illuminate\Http\Request;
 
@@ -23,11 +24,11 @@ class AppointmentController extends Controller
 
 
 
-/**
- *
- *
- * @authenticated
- */
+    /**
+     *
+     *
+     * @authenticated
+     */
     public function index(AppointmentFilter  $filters)
     {
         $appointments = $this->appointmentService->index($filters);
@@ -37,21 +38,29 @@ class AppointmentController extends Controller
         ]);
     }
 
-/**
- *
- *
- * @authenticated
- */
+    /**
+     *
+     *
+     * @authenticated
+     */
     public function store(StoreAppointmentRequest $request)
     {
         $appointment = $this->appointmentService->store($request->validated());
 
-
-
-
-
         return (new AppointmentResource($appointment))->additional([
             'message' => 'Appointment Created Successfully'
+        ]);
+    }
+
+    /**
+     * @authenticated
+     */
+    public function cancel(CancelAppointmentRequest $request, Appointment $appointment)
+    {
+        $appointment = $this->appointmentService->cancel($appointment, $request->user());
+
+        return (new AppointmentResource($appointment))->additional([
+            'message' => 'Appointment Cancelled Successfully'
         ]);
     }
 }

@@ -73,7 +73,7 @@ endpoints:
         name: role
         description: ''
         required: true
-        example: patient
+        example: doctor
         type: string
         enumValues:
           - patient
@@ -164,7 +164,7 @@ endpoints:
       email: kunde.eloisa@example.com
       phone: hfqcoynlazghdtqtq
       password: consequatur
-      role: patient
+      role: doctor
       experience_years: 45
       consultation_fee: 56
       doctor_schedule:
@@ -398,14 +398,14 @@ endpoints:
         name: date
         description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>today</code>.'
         required: true
-        example: '2107-08-19'
+        example: '2107-08-22'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      date: '2107-08-19'
+      date: '2107-08-22'
     fileParameters: []
     responses:
       -
@@ -520,7 +520,7 @@ endpoints:
         name: appointment_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: true
-        example: '2026-07-20'
+        example: '2026-07-23'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -531,7 +531,7 @@ endpoints:
         name: start_time
         description: 'Must be a valid date in the format <code>H:i</code>.'
         required: true
-        example: '13:06'
+        example: '16:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -542,7 +542,7 @@ endpoints:
         name: end_time
         description: 'Must be a valid date in the format <code>H:i</code>.'
         required: true
-        example: '13:06'
+        example: '16:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -562,10 +562,57 @@ endpoints:
     cleanBodyParameters:
       doctor_profile_id: consequatur
       patient_id: consequatur
-      appointment_date: '2026-07-20'
-      start_time: '13:06'
-      end_time: '13:06'
+      appointment_date: '2026-07-23'
+      start_time: '16:45'
+      end_time: '16:45'
       notes: consequatur
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PATCH
+    uri: 'api/appointments/{appointment_id}/cancel'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Paste your Sanctum token here'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      appointment_id:
+        custom: []
+        name: appointment_id
+        description: 'The ID of the appointment.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      appointment_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []
